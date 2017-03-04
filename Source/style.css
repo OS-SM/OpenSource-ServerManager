@@ -1,0 +1,78 @@
+body {
+	font-family: Arial;
+	padding: 0;
+	margin: 0;
+	background: #141414;
+	border-left: 1px solid #3f3d3c;
+	border-bottom: 1px solid #282521;
+	border-top: 1px solid #676668;
+	border-right: 1px solid #55524f;
+}
+
+background {
+	background: url('assets/background.jpg') no-repeat 50% 0;
+	position: absolute;
+	top: 1px;
+	left: 1px;
+	right: 1px;
+	height: 250px;
+	box-shadow: inset 0 -15px 15px #141414;
+	z-index: 1;
+}
+
+/* Header */
+header {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 5;
+	padding: 8px;
+}
+
+header dragarea {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 70px;
+	bottom: 0px;
+	z-index: 4;
+	-webkit-app-region: drag;
+}
+
+header button[data-action^="window:"] {
+	display: block;
+	position: relative;
+	z-index: 10;
+	width: 16px;
+	height: 16px;
+	background: none;
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: 100% 100%;
+    border: none;
+	cursor: pointer !important;
+	float: right;
+	opacity: 0.5;
+	margin: 0 2px;
+}
+
+header button[data-action^="window:"]:hover {
+	opacity: 1;	
+}
+
+header button[data-action="window:close"] {
+	background-image: url('assets/window_close.png');
+}
+
+header button[data-action="window:maximize"] {
+	background-image: url('assets/window_maximize.png');
+}
+
+header button[data-action="window:minimize"] {
+	background-image: url('assets/window_minimize.png');
+}
+
+header button[data-action="window:restore"] {
+	background-image: url('assets/window_restore.png');
+}

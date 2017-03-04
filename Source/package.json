@@ -1,0 +1,11 @@
+{
+  "name": "OS-SM",
+  "main": "index.html",  
+  "window": {
+    "icon": "icon.png",
+	"width" 	: 400,
+	"height"	: 300,
+	"toolbar"	: false,
+	"frame": false
+  }
+}
