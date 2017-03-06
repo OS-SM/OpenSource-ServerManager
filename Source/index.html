@@ -3,6 +3,8 @@
 		<meta charset="UTF-8" />
 		<title>ServerManager</title>
 		<link rel="icon" type="image/png" href="icon.png" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
 		<link rel="stylesheet" type="text/css" href="style.css" />
 	</head>
 	<body>
@@ -13,7 +15,19 @@
 			<button data-action="window:minimize"></button>
 			<dragarea></dragarea>
 		</header>
+		<resize></resize>
+		<settings data-action="settings:toggle">
+			<i class="material-icons">&#xE8B8;</i>
+		</settings>
+		<overlay data-view="settings">
+			<header>
+				<h2>Settings</h2>
+				<button data-action="settings:save"><i class="material-icons">&#xE161;</i> Save</button>			
+				<button data-action="settings:close"><i class="material-icons">&#xE5C9;</i> Cancel</button>
+			</header>
+		</overlay>
 		<script type="text/javascript" src="classes/engines/frostbite3/Client.js"></script>
+		<script type="text/javascript" src="classes/Tools.js"></script>
 		<script type="text/javascript" src="classes/Core.js"></script>
 	</body>
 </html>

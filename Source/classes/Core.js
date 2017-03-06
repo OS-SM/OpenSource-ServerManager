@@ -5,8 +5,14 @@
 		win.showDevTools(this);
 		
 		document.addEventListener('click', function onClick(event) {
-			if(typeof(event.target.dataset) != 'undefined' && typeof(event.target.dataset.action) != 'undefined') {
-				switch(event.target.dataset.action) {
+			if(!event) {
+				event = window.event;
+			}
+			
+			var parent = Tools.getClosest(event.target, '[data-action]');
+			
+			if(typeof(parent) != 'undefined' && typeof(parent.dataset) != 'undefined' && typeof(parent.dataset.action) != 'undefined') {
+				switch(parent.dataset.action) {
 					case 'window:close':
 						win.close(true);
 					break
@@ -21,9 +27,18 @@
 					case 'window:minimize':
 						win.minimize();
 					break;
+					case 'settings:save':
+					case 'settings:close':
+					case 'settings:toggle':
+						var element	= document.querySelector('overlay[data-view="settings"]');
+						element.classList.toggle('show');
+						this.checkOverlay();
+					break;
 				}
 			}
-		});
+		}.bind(this));
+		
+		this.checkOverlay();
 		
 		var c = new Client('localhost', 11000, 'test123', {
 			
@@ -34,6 +49,17 @@
 	/*	gui.Window.open('create.html', {
 			frame: false
 		});*/
+	};
+	
+	this.checkOverlay = function checkOverlay() {
+		var elements	= document.querySelectorAll('overlay');
+		document.body.dataset.overlay = null;
+		
+		[].forEach.call(elements, function(element) {
+			if(element.classList.contains('show')) {
+				document.body.dataset.overlay = 'settings';
+			}
+		});
 	};
 	
 	this.init();
