@@ -1,11 +1,11 @@
 {
-  "name": "OS-SM",
-  "main": "index.html",  
-  "window": {
-    "icon": "icon.png",
-	"width" 	: 800,
-	"height"	: 600,
-	"toolbar"	: false,
-	"frame": false
-  }
+	"name":	"OS-SM",
+	"main":		"Views/Main.html",  
+	"window":	{
+		"icon":		"Assets/Icon.png",
+		"width":		800,
+		"height"	:	600,
+		"toolbar":	false,
+		"frame":	false
+	}
 }

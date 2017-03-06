@@ -35,7 +35,7 @@ echo.
 call :ColorText 0a "Creating Executable..."
 echo.
 copy /b /y %CD%\Bin\nw\nw.exe %CD%\Build\%NAME%.exe 
-%CD%\Bin\ar\Resourcer.exe -op:upd -src:%CD%\Build\%NAME%.exe -type:14 -name:IDR_MAINFRAME -file:%CD%\Source\icon.ico
+%CD%\Bin\ar\Resourcer.exe -op:upd -src:%CD%\Build\%NAME%.exe -type:14 -name:IDR_MAINFRAME -file:%CD%\Source\Assets\Icon.ico
 copy /b /y %CD%\Build\%NAME%.exe + %CD%\BUILD\%NAME%.nw %CD%\Build\%NAME%.exe
 
 echo.

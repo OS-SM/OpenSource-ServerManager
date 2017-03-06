@@ -2,7 +2,6 @@
 	this.init = function init() {
 		var gui	= require('nw.gui');
 		var win	= gui.Window.get();
-		win.showDevTools(this);
 		
 		document.addEventListener('click', function onClick(event) {
 			if(!event) {
@@ -39,16 +38,6 @@
 		}.bind(this));
 		
 		this.checkOverlay();
-		
-		var c = new Client('localhost', 11000, 'test123', {
-			
-		});
-			
-		c.connect();
-		
-	/*	gui.Window.open('create.html', {
-			frame: false
-		});*/
 	};
 	
 	this.checkOverlay = function checkOverlay() {
