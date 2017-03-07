@@ -1,2 +1,6 @@
+# System
+Thumbs.db
+.DS_Store
+
+# Build
 Build/*
-Source/assets/Thumbs.db
