@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Create Server</title>
+		<link rel="icon" type="image/png" href="../../Assets/Icon.png" />
+		<link rel="stylesheet" type="text/css" href="../../Assets/CSS/Fonts.css" />
+		<link rel="stylesheet" type="text/css" href="../../Assets/CSS/Scrollbar.css" />
+		<link rel="stylesheet" type="text/css" href="../../Assets/CSS/Style.css" />
+	</head>
+	<body data-name="Server:Create">
+		<header>
+			<h2>Create Server</h2>
+			<button data-action="window:close"></button>
+			<button data-action="window:minimize"></button>
+			<dragarea></dragarea>
+		</header>
+		<content>
+			<form method="post" action="server:create">
+				<entry>
+					<label>Game</label>
+					<selection data-selected="none">
+						<ul></ul>
+					</selection>
+				</entry>
+				<entry>
+					<label>IP Address</label>
+					<input type="text" name="ip_address" value="" placeholder="127.0.0.1" />
+				</entry>
+				<entry>
+					<label>RCON Port</label>
+					<input type="text" name="ip_port" value="" placeholder="1234" />
+				</entry>
+				<entry>
+					<label>Password</label>
+					<input type="password" name="password" value="" placeholder="" />
+				</entry>
+				<entry class="buttons">
+					<input type="hidden" name="id" value="new" />
+					<button data-action="server:save"><i class="material-icons">&#xE161;</i> Save</button>			
+					<button data-action="server:close"><i class="material-icons">&#xE5C9;</i> Cancel</button>
+				</entry>
+			</form>
+		</content>
+		<script type="text/javascript" src="../../Classes/Tools.js"></script>
+		<script type="text/javascript" src="../../Classes/Core.js"></script>
+	</body>
+</html>

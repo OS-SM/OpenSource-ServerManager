@@ -4,9 +4,10 @@
 		<title>ServerManager</title>
 		<link rel="icon" type="image/png" href="../Assets/Icon.png" />
 		<link rel="stylesheet" type="text/css" href="../Assets/CSS/Fonts.css" />
+		<link rel="stylesheet" type="text/css" href="../../Assets/CSS/Scrollbar.css" />
 		<link rel="stylesheet" type="text/css" href="../Assets/CSS/Style.css" />
 	</head>
-	<body>
+	<body data-name="Main">
 		<background></background>
 		<header>
 			<button data-action="window:close"></button>
@@ -17,6 +18,7 @@
 		<resize></resize>
 		<settings data-action="settings:toggle">
 			<i class="material-icons">&#xE8B8;</i>
+			<button data-action="server:create">Create Server</button>
 		</settings>
 		<overlay data-view="settings">
 			<header>
