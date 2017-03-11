@@ -59,6 +59,11 @@ echo.
 if not exist %CD%\Build\Plugins mkdir %CD%\Build\Plugins
 
 echo.
+call :ColorText 0a "Create Logs-Directory..."
+echo.
+if not exist %CD%\Build\Logs mkdir %CD%\Build\Logs
+
+echo.
 call :ColorText 0a "Move Locales (Language-Files)..."
 echo.
 @RD /S /Q %CD%\Build\locales
