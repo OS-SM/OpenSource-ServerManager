@@ -1,11 +1,15 @@
 {
-	"name":	"OS-SM",
-	"main":		"Views/Main.html",  
-	"window":	{
-		"icon":		"Assets/Icon.png",
-		"width":		800,
-		"height"	:	600,
-		"toolbar":	false,
-		"frame":	false
-	}
+  "name": "OS-SM",
+  "domain": "ossm",
+  "main": "Views/Main.html",
+  "js-flags": "--harmony_proxies --harmony_collections",
+  "user-agent": "OS-SM %ver/%nwver/%webkit_ver, %osinfo",
+  "single-instance": true,
+  "window": {
+    "icon": "Assets/Icon.png",
+    "width": 800,
+    "height": 600,
+    "toolbar": false,
+    "frame": false
+  }
 }
