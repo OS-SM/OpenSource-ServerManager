@@ -18,7 +18,6 @@
 		<resize></resize>
 		<settings data-action="settings:toggle">
 			<i class="material-icons">&#xE8B8;</i>
-			<button data-action="server:create">Create Server</button>
 		</settings>
 		<overlay data-view="settings">
 			<header>
@@ -26,8 +25,17 @@
 				<button data-action="settings:save"><i class="material-icons">&#xE161;</i> Save</button>			
 				<button data-action="settings:close"><i class="material-icons">&#xE5C9;</i> Cancel</button>
 			</header>
+			<content>
+				<button data-action="server:create">Create Server</button>
+			</content>
 		</overlay>
+		<content>
+			<servers><servers>
+		</content>
+		<!--<script type="text/javascript" src="../Classes/Autoload.js"></script>-->
+		<script type="text/javascript" src="../Classes/Config.js"></script>
 		<script type="text/javascript" src="../Classes/Tools.js"></script>
+		<script type="text/javascript" src="../Classes/Database/MySQL.js"></script>
 		<script type="text/javascript" src="../Classes/Core.js"></script>
 	</body>
 </html>

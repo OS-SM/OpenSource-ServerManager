@@ -227,6 +227,7 @@ content {
     right: 1px;
     bottom: 1px;
 	padding: 10px;
+	z-index: 1;
 }
 
 /* Content :: Form */
@@ -323,4 +324,96 @@ content selection ul li.selected {
 content selection ul li.active {
   color: #fff;
   background: #a03232;
+}
+
+/* Content :: Servers */
+content servers {
+	display: table; 
+	border-collapse:collapse;
+	width: 100%;
+    position: relative;
+}
+
+content servers server, content servers header {
+	display: table-row;
+	width: 100%;
+    position: relative;
+	border: 1px solid transparent;
+}
+
+content servers header entry, content servers server icon, content servers server name, content servers server players, content servers server type, content servers server ping {
+	display: table-cell;
+    position: relative;
+	border: 1px solid transparent;
+	padding: 6px;
+	background-color: rgba(7,7,7,0.5);
+}
+
+content servers server:hover icon, content servers server:hover name, content servers server:hover players, content servers server:hover type, content servers server:hover ping {
+	cursor: pointer;
+    background: #FFFFFF;
+    border: none;
+    color: #999999;
+    -webkit-box-shadow: 0 0 7px 0 #e0f4f8;
+    -moz-box-shadow: 0 0 7px 0 #e0f4f8;
+    box-shadow: 0 0 7px 0 #e0f4f8;
+}
+
+content servers header entry {
+	white-space: nowrap;
+    padding: 5px;
+    color: #fff;
+    background-color: rgba(7,7,7,0.5);
+    border: 1px solid transparent;
+    background-color: rgba(7,7,7,0.8);
+    color: #a8a8a8;
+    font-weight: normal;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+content servers server icon {
+	text-align: center;
+	width: 30px;
+}
+
+content servers server icon picture {
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+	position: relative;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+content servers server name strong {
+	display: block;
+    line-height: 16px;
+    font-size: 14px;
+}
+
+content servers server name description {
+	display: block;
+	line-height: 12px;
+	margin-top: 2px;
+	font-size: 11px;
+	color: #a8a8a8;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+content servers server players {
+	text-align: center;
+	width: 48px;
+}
+
+content servers server type {
+	text-align: center;
+	width: 48px;
+}
+
+content servers server ping {
+	text-align: center;
+	width: 48px;
 }
