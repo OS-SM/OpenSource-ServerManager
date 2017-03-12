@@ -1,6 +1,18 @@
-* {
-	outline: none;
-	transition: left 0.20s ease-in-out;
+::selection, ::-webkit-selection, *::selection {
+	background:					transparent;
+	background:					rgba(255, 255, 255, 0);
+}
+
+*, *:hover, *:focus, *:active {
+	outline:								none !important;
+	-webkit-overflow-scrolling:	touch;
+	-webkit-font-smoothing:		antialiased;
+	user-select:						none;
+	transition:							left 0.20s ease-in-out;
+}
+
+html {
+	box-sizing:					border-box;	
 }
 
 body {
@@ -12,6 +24,10 @@ body {
 	border-bottom: 1px solid #282521;
 	border-top: 1px solid #676668;
 	border-right: 1px solid #55524f;
+	box-sizing:					border-box;
+	font-smoothing:				antialiased;
+	font-smooth:				always;
+	text-rendering:				optimizeLegibility;
 }
 
 background {
@@ -230,6 +246,17 @@ content {
 	z-index: 1;
 }
 
+overlay content {
+    width: 100%;
+    box-sizing: border-box;
+    left: inherit;
+    right: inherit;
+    z-index: inherit;
+    padding: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 /* Content :: Form */
 content form {}
 
@@ -246,6 +273,33 @@ content form entry label {
 	display: block;
     color: #FFFFFF;
     font-size: 14px;
+}
+
+content form entry input[type="checkbox"] {
+	-webkit-appearance: none;
+    border: 1px solid #454545;
+    cursor: pointer;
+}
+
+content form entry input[type="checkbox"]:after {
+	content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    margin: 2px;	
+}
+
+content form entry input[type="checkbox"]:checked:after {
+	background: #FFFFFF;
+}
+
+content form entry span[data-checkbox] {
+	display: block;
+    color: #FFFFFF;
+    font-size: 13px;
+    box-sizing: border-box;
+    position: relative;
+    margin: -22px 0 0 32px;	
 }
 
 content form entry input[type="text"], content form entry input[type="password"] {

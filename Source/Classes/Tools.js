@@ -14,7 +14,7 @@ var Tools = (new function Tools() {
 		}
 		
 		for(; element && element !== document; element = element.parentNode) {
-			if(element.matches(selector)) {
+			if(typeof(element.matches) != 'undefined' && element.matches(selector)) {
 				return element;
 			}
 		}

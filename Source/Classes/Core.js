@@ -1,5 +1,5 @@
 (function Core() {
-	var Core;
+	var Core, Servers;
 	var _file_system		= require('fs');
 	var _path				= require('path');
 	var _gui					= require('nw.gui');
@@ -17,12 +17,20 @@
 			Tools = global.Tools;
 		}
 		
+		if(typeof(global.Servers) == 'undefined') {
+			global.Servers = {};
+		}
+		
 		if(typeof(global.Core) == 'undefined') {
 			global.Core = this;
 		}
 		
 		if(typeof(global.Core) != 'undefined') {
 			Core = global.Core;
+		}
+		
+		if(typeof(global.Servers) != 'undefined') {
+			Servers = global.Servers;
 		}
 				
 		if(!this.isInstalled()) {
@@ -59,7 +67,19 @@
 				event = window.event;
 			}
 			
-			var parent = Tools.getClosest(event.target, '[data-action]');
+			var checkbox	= Tools.getClosest(event.target, 'input[type="checkbox"]');
+			
+			if(typeof(checkbox) != 'undefined') {
+				var title = 'Disabled';
+				
+				if(checkbox.checked) {
+					 title = 'Enabled';
+				}
+				
+				document.querySelector('span[data-checkbox="' + checkbox.name + '"]').innerHTML = title;
+			}
+			
+			var parent		= Tools.getClosest(event.target, '[data-action]');
 			
 			if(typeof(parent) != 'undefined' && typeof(parent.dataset) != 'undefined' && typeof(parent.dataset.action) != 'undefined') {
 				switch(parent.dataset.action) {
@@ -108,18 +128,19 @@
 							focus:		true,
 							position:	'center',
 							width:		300,
-							height:		375,
+							height:		415,
 							frame:		false,
 							resizable:	false
 						});
 					break;
 					case 'server:save':
 						Database.insert('servers', {
-							id:				null,
-							ip_address:	document.querySelector('input[name="ip_address"]').value,
-							ip_port:			document.querySelector('input[name="ip_port"]').value,
-							game:			document.querySelector('selection').dataset.selected,
-							password:		document.querySelector('input[name="password"]').value
+							id:					null,
+							ip_address:		document.querySelector('input[name="ip_address"]').value,
+							ip_port:				document.querySelector('input[name="ip_port"]').value,
+							game:				document.querySelector('selection').dataset.selected,
+							password:			document.querySelector('input[name="password"]').value,
+							autoconnect:		document.querySelector('input[name="autoconnect"]').checked ? 'Y' : 'N'
 						}, function(id) {
 							Core.updateServer();
 						});
@@ -220,7 +241,16 @@
 			servers.innerHTML = header;
 			
 			results.forEach(function(server) {
-				var game = Core.getGame(server.game);
+				var game 					= Core.getGame(server.game);
+				var server_instance	= Servers[server.id];
+				
+				if(typeof(server_instance) == 'undefined') {
+					setTimeout(function() {
+						server_instance		= new Server(server, game);
+						Servers[server.id]	= server_instance;
+					}, 500);
+				}
+				
 				var html = '<server data-id="' + server.id + '" data-game="' + server.game + '">';
 				html += '<icon><picture style="background-image: url(\'file:///' + game.path.replace(/\\/g, '/') + 'icon.png\');"></picture></icon>';
 				html += '<name>';
